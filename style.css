@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Georgia, serif;
+    color: #f5e6c8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+.bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to bottom, black 40%, transparent 80%),
+        url("castle.jpg") no-repeat center;
+    background-size: cover;
+    z-index: -3;
+}
+
+/* DARK OVERLAY */
+.dark-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: -2;
+}
+
+/* KABUT */
+.fog {
+    position: fixed;
+    width: 200%;
+    height: 100%;
+    background: url("https://i.ibb.co/7y4p5YB/fog.png") repeat;
+    opacity: 0.2;
+    animation: fogMove 60s linear infinite;
+    z-index: -1;
+}
+
+@keyframes fogMove {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* HUJAN */
+.rain {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("https://i.ibb.co/9v5hP1M/rain.png") repeat;
+    animation: rainMove 0.5s linear infinite;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+@keyframes rainMove {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+}
+
+/* CARD */
+.card {
+    position: relative;
+    z-index: 2;
+    background: rgba(0,0,0,0.75);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 40px black;
+    animation: fadeIn 2s ease;
+    max-width: 320px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* JUDUL */
+h1 {
+    font-size: clamp(36px, 7vw, 55px);
+    color: #ffffff;
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #fff;
+}
+
+/* BIO */
+.bio {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* JAM */
+#clock {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #ffffff;
+    text-shadow: 0 0 10px white;
+    line-height: 1.5;
+}
+
+/* QUOTE */
+#quote {
+    font-size: 13px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+/* BUTTON LINK */
+.button {
+    display: inline-block;
+    margin: 8px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: black;
+    background: linear-gradient(45deg, #c8a96a, #ffd700);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px gold;
+}
+
+/* PLAY BUTTON */
+.play-btn, .stop-btn {
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+}
