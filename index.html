@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Meza Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="dark-overlay"></div>
+<div class="fog"></div>
+<div class="rain"></div>
+
+<div class="card">
+
+    <h1>Meza Archive 👑</h1>
+
+    <p class="bio">
+        Selamat datang di Meza Archive 👑<br>
+        Tempat vibe dark fantasy & aesthetic.
+    </p>
+
+    <p id="clock"></p>
+    <p id="quote"></p>
+
+    <div>
+        <a href="https://wa.me/62895320911586" class="button">WhatsApp</a>
+        <a href="https://www.instagram.com/ezagatauu?igsh=dnB1OHU3MnUydndv" class="button">Instagram</a>
+    </div>
+
+    <div>
+        <button class="play-btn" onclick="playMusic()">▶ Play</button>
+        <button class="stop-btn" onclick="stopMusic()">⏸ Stop</button>
+    </div>
+
+</div>
+
+<audio id="musik" loop>
+    <source src="goldenbrown.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// MUSIC
+let audio = document.getElementById("musik");
+
+function playMusic() {
+    audio.play();
+}
+
+function stopMusic() {
+    audio.pause();
+}
+
+// JAM WIB REALTIME + TANGGAL
+function updateClock() {
+    const now = new Date();
+
+    const waktu = now.toLocaleTimeString("id-ID", {
+        timeZone: "Asia/Jakarta",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+    });
+
+    const tanggal = now.toLocaleDateString("id-ID", {
+        timeZone: "Asia/Jakarta",
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+
+    document.getElementById("clock").innerHTML =
+        tanggal + "<br>" + waktu + " WIB";
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+// QUOTE RANDOM
+let quotes = [
+    "Darkness reveals the true king 👑",
+    "Silence is power.",
+    "Fear the calm before the storm.",
+    "Legends are born in the shadows."
+];
+
+document.getElementById("quote").innerHTML =
+    quotes[Math.floor(Math.random() * quotes.length)];
+</script>
+
+</body>
+</html>
